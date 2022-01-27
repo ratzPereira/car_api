@@ -56,4 +56,15 @@ public class CarApplicationTests {
         List<CarDTO> carDTOS = service.getCars();
         assertEquals(30, carDTOS.size());
     }
+
+    @Test
+    @DisplayName("Should get List of cars per type")
+    public void getListOfCarsByTypeTest() {
+
+        assertEquals(10,service.getCarsByType("classicos").size());
+        assertEquals(10,service.getCarsByType("esportivos").size());
+        assertEquals(10,service.getCarsByType("luxo").size());
+
+        assertEquals(0, service.getCarsByType("x").size());
+    }
 }
